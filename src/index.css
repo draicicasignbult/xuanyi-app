@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== Global Base ===== */
+html, body, #root {
+  height: 100%;
+  font-family: 'Noto Sans SC', 'Source Han Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  -webkit-tap-highlight-color: transparent;
+  @apply bg-rice-50 text-ink-dark antialiased;
+}
+
+/* Hide scrollbar for horizontal scroll areas */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ===== Keyframes ===== */
+
+/* Floating animation for center nav button */
+@keyframes float-jade {
+  0%, 100% { transform: translateY(-16px); }
+  50% { transform: translateY(-22px); }
+}
+
+/* Glow pulse for golden elements */
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 15px rgba(184, 150, 62, 0.3), 0 0 30px rgba(184, 150, 62, 0.1); }
+  50% { box-shadow: 0 0 25px rgba(184, 150, 62, 0.5), 0 0 50px rgba(184, 150, 62, 0.2); }
+}
+
+/* Rotate for star disk */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Reverse rotate */
+@keyframes spin-slow-reverse {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+/* Orbit animation for five elements pearls */
+@keyframes orbit {
+  from { transform: rotate(0deg) translateX(80px) rotate(0deg); }
+  to { transform: rotate(360deg) translateX(80px) rotate(-360deg); }
+}
+
+/* Fade in up */
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Danmu scroll */
+@keyframes danmu-scroll {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
+}
+
+/* ===== Utility Classes ===== */
+.animate-float-jade {
+  animation: float-jade 3s ease-in-out infinite;
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+
+.animate-spin-slow-reverse {
+  animation: spin-slow-reverse 25s linear infinite;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out forwards;
+}
+
+/* Bottom safe area for mobile */
+.pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* Watermark pattern (subtle cloud pattern for backgrounds) */
+.bg-cloud-pattern {
+  background-image:
+    radial-gradient(circle at 20% 30%, rgba(201, 169, 110, 0.06) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(201, 169, 110, 0.04) 0%, transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(201, 169, 110, 0.05) 0%, transparent 60%);
+}
+
+/* Mountain silhouette for My page */
+.bg-mountain-silhouette {
+  background-image:
+    linear-gradient(175deg, #F5F0E8 0%, #EEEAE0 40%, #E8E4DA 100%);
+  position: relative;
+}
+.bg-mountain-silhouette::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 200px;
+  background:
+    /* Far mountains */
+    linear-gradient(200deg, transparent 30%, rgba(180,170,155,0.15) 30.5%, rgba(180,170,155,0.15) 50%, transparent 50.5%),
+    linear-gradient(160deg, transparent 25%, rgba(170,160,145,0.12) 25.5%, rgba(170,160,145,0.12) 45%, transparent 45.5%),
+    /* Near mountains */
+    linear-gradient(180deg, transparent 55%, rgba(160,150,135,0.08) 55.5%, rgba(160,150,135,0.08) 85%, transparent 85.5%);
+  pointer-events: none;
+}
+
+/* Crimson pattern overlay */
+.bg-crimson-pattern {
+  background-color: #F5E6E8;
+  background-image:
+    repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(196,30,43,0.03) 10px, rgba(196,30,43,0.03) 20px);
+}
